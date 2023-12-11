@@ -1,0 +1,258 @@
+%% If you need to pass whatever options to xcolor
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+%% If you are using \orcid or academicons
+%% icons, make sure you have the academicons
+%% option here, and compile with XeLaTeX
+%% or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+%% AltaCV uses the fontawesome5 and academicons fonts
+%% and packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+  % commentaires longs
+  \usepackage{comment}
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+\usepackage{comment}
+
+\begin{document}
+\name{Mathieu LATOURNERIE}
+\tagline{Élève ingénieur spécialisé en IA}
+%% You can add multiple photos on the left or right
+%\photoR{2.8cm}{Globe_High}
+% \photoL{2.5cm}{Yacht_High,Suitcase_High}
+
+\personalinfo{%
+  % Not all of these are required!
+  \email{mathieu.latournerie@epita.fr}
+  \phone{+33 6 62 77 76 64}
+  \mailaddress{14, Rue des Bergers, 85340 Les Sables d'Olonne France}
+  %\location{Location, COUNTRY}
+  %\homepage{www.homepage.com}
+  %\twitter{@twitterhandle}
+  %\linkedin{your_id}
+  %\github{your_id}
+  %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
+  %% You can add your own arbtrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+%\AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.55}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+\cvsection{Formation}
+
+\cvevent{Formation ingénieur}{EPITA}{2021-2024}{}Majeure Data-Science et intelligence artificielle
+
+\divider
+
+\cvevent{Formation ingénieur}{École Mines de Saint Etienne Cursus ISIMIN}{2018-2021}{}
+
+\divider
+
+\cvevent{Classe préparatoire scientifique}{Lycée Chateaubriand}{2016-2018}{}
+Math Physique option informatique
+
+\begin{comment}
+    
+\divider
+
+\cvevent{Lycée filière scientifique}{Lycée Sainte Marie du port}{2013-2016}{}
+Bac mention très bien \\
+Option spécialité math
+\end{comment}
+
+\cvsection{Expérience professionnelle}
+
+\cvevent{Projet parabole}{CNES}{octobre 2019 -- 1 an}{}
+\begin{itemize}
+\item Projet de réalisation en partenariat avec le CNES
+\item Création d'un appareil de mesure de masse en absence de \\
+gravité, testé en vol zéro g
+\end{itemize}
+
+\divider
+
+\cvevent{Stage - Base de données}{PROGINOV}{janvier 2019 -- 1 mois}{}
+\begin{itemize}
+\item Développement informatique, relation client
+\item Mise en place d'un outil pour la gestion du parc\\
+informatique
+\item Gestion de base de données SQL
+\end{itemize}
+
+\divider
+
+\cvevent{Stage - développement informatique}{DXOMARK}{Septembre 2022 -- 6 mois}{}
+\begin{itemize}
+\item Développement informatique en python d'outils internes
+\item Développement frontend en VueJs pour un client.
+\item Travail collaboratif
+\end{itemize}
+
+\cvsection{Langues}
+
+\cvskill{Français (Natif)}{5}
+\divider
+\cvskill{Anglais }{4}
+\divider
+\cvskill{Japonais}{2}
+
+\switchcolumn
+
+\cvsection{Expérience académique}
+
+\begin{comment}
+\cvevent{Projet TIGER}{}{février 2022 -- 2 mois}{}
+\begin{itemize}
+\item Développement d'un compilateur en C++
+\item Gestion du travail en équipe
+\item Travail de lecture de code fourni
+\end{itemize}
+
+\divider
+
+\cvevent{Projet JWS}{}{janvier 2022 -- 1 mois}{}
+\begin{itemize}
+\item Rush d'apprentissage du language Java
+\item Test des compétences sur un projet final : Un serveur de jeu Bomberman
+\item Découverte du framework quarkus et de l'utilisation d'une API REST
+\end{itemize}
+
+\divider
+
+\cvevent{Projet 42SH}{}{décembre 2021 -- 1 mois}{}
+\begin{itemize}
+\item Développement d'un shell en C
+\item Gestion du travail en équipe 
+\end{itemize}
+
+\divider
+
+\cvevent{Python Big data}{}{Février 2023 -- 1 mois}{}
+\begin{itemize}
+    \item Travail avec pandas et numpy pour analyser des données
+    \item Analyse de données sur la blockchain du bitcoin
+\end{itemize}
+\divider
+
+\end{comment}
+\cvevent{Projet Harmony}{}{Mai 2023 -- 3 mois}{}
+\begin{itemize}
+    \item Projet de Data engineering
+    \item Utilisation de Hadoop, notament HDFS, Spark et Kafka
+    \item Traitement des données de façon distribué
+\end{itemize}
+
+\divider
+
+\cvevent{Projet IREN}{}{Mars 2023 -- 2 mois}{}
+\begin{itemize}
+    \item Reconnaissance d'image avec Tensoflow
+    \item Création d'un réseau de neurones de classification sur des images de bateaux en entier, concours sur la précision
+\end{itemize}
+
+\divider
+
+\cvevent{Projets NLP}{}{Mars 2023 -- 6 mois}{}
+\begin{itemize}
+    \item Multiple projets de NLP allant du Naive Bayes classifier au fine tuning de transformers
+    \item Analyse des prédictions faites par les modèles pour comprendre les comportements et erreurs
+    \item Projets fais en pytorch
+\end{itemize}
+
+\divider
+\cvevent{Apprentissage par renforcement}{}{September 2023 -- 2 months}{}
+\begin{itemize}
+    \item Implémentation du papier de DeepMind sur le DQN
+    \item Objectif: faire jouer un agent à atari breakout et maximiser le score
+    \item Implémentation complète en pytorch et fine-tuning des paramètres
+\end{itemize}
+\cvsection{Informatique}
+
+\begin{itemize}
+    \item \textbf{Langages :} \\
+            C ; C++ ; Java ; Python ; Scala ; SQL ; Js ; Scala ;
+    \item \textbf{ML Frameworks:}\\
+            Tensorflow ; Pytorch ; Spark ;
+    \item \textbf{Outils :} \\
+            Git, Linux, Docker, Kafka, Azure
+\end{itemize}
+
+\cvsection{Loisirs}
+\cvevent{Badminton en compétion}{}{2012 -- Aujourd'hui}{}
+\begin{itemize}
+    \item Participation à de nombreux tournois et compétitions par équipe, niveau national
+    \item Bénévolat et organisation de compétition
+
+\end{itemize}
+
+\end{paracol}
+\end{document}
